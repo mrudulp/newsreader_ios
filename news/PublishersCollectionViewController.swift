@@ -58,13 +58,11 @@ class PublishersCollectionViewController: UICollectionViewController {
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return publishers.numberOfSections
     }
 
-
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return publishers.numberOfPublishers
+        return publishers.numberOfPublishersInSection(section)
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -108,6 +106,14 @@ class PublishersCollectionViewController: UICollectionViewController {
 
         let publisher = publishers.publisherForItemAtIndexPath(indexPath)
         self.performSegueWithIdentifier(Storyboard.showWebView, sender: publisher)
+    }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "SectionHeader", forIndexPath: indexPath) as! PublisherSectionHeader
+        if let publisher = publishers.publisherForItemAtIndexPath(indexPath){
+            headerView.publisher = publisher
+        }
+        return headerView
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
