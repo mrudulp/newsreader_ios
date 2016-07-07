@@ -16,6 +16,8 @@
 ## Technical Highlights:
 
 * Custom CollectionViewCell
+* Custom Section Headers
+* Insert New Items
 
 ## Status:
 
@@ -23,7 +25,5 @@
 
 ## Desired Further Enhancement:
 
-* Custom Section Headers
-* Insert New Items
 * Delete Items
 * Move Items

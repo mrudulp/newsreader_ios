@@ -18,6 +18,7 @@ class PublishersCollectionViewController: UICollectionViewController {
     private let numberOfItems: CGFloat = 3.0
     private let heightAdjustment: CGFloat = 30.0
     
+    @IBOutlet weak var addItemBtn: UIBarButtonItem!
     private struct Storyboard
     {
         static let CellIdentifier = "PublisherCell"
@@ -122,5 +123,10 @@ class PublishersCollectionViewController: UICollectionViewController {
             let publisher = sender as! Publisher
             webViewController.publisher = publisher
         }
+    }
+    @IBAction func onAddItemClicked(sender: AnyObject) {
+        //print("We arriuved here")
+        let indexPath = publishers.indexPathForNewRandomPublisher()
+        self.collectionView?.insertItemsAtIndexPaths([indexPath])
     }
 }

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Publishers Collection View Controller-->
+        <!--News-->
         <scene sceneID="z9u-6B-sxo">
             <objects>
                 <collectionViewController id="qoc-Sv-qqr" customClass="PublishersCollectionViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
@@ -99,8 +99,15 @@
                             <outlet property="delegate" destination="qoc-Sv-qqr" id="HFc-GW-bCQ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="EEU-b0-ywQ"/>
+                    <navigationItem key="navigationItem" title="News" id="EEU-b0-ywQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q2f-zq-HCe">
+                            <connections>
+                                <action selector="onAddItemClicked:" destination="qoc-Sv-qqr" id="MHv-TY-iaR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addItemBtn" destination="Q2f-zq-HCe" id="wxw-az-qVN"/>
                         <segue destination="apX-h2-gTX" kind="show" identifier="ShowWebView" id="trj-gA-u8x"/>
                     </connections>
                 </collectionViewController>

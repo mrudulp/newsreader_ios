@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3EAA3C8D1D2C06EF00E01521 /* PublishersCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA3C8C1D2C06EF00E01521 /* PublishersCollectionViewController.swift */; };
-		3EAA3C8F1D2D0C7E00E01521 /* PublisherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA3C8E1D2D0C7E00E01521 /* PublisherDetailViewController.swift */; };
 		3EAA3C911D2D56D800E01521 /* PublisherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA3C901D2D56D800E01521 /* PublisherCollectionViewCell.swift */; };
 		3EAA3C931D2DA28300E01521 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA3C921D2DA28300E01521 /* WebViewController.swift */; };
 		3EAA3C951D2E4B3E00E01521 /* PublisherSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA3C941D2E4B3E00E01521 /* PublisherSectionHeader.swift */; };
@@ -22,7 +21,6 @@
 
 /* Begin PBXFileReference section */
 		3EAA3C8C1D2C06EF00E01521 /* PublishersCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishersCollectionViewController.swift; path = news/PublishersCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
-		3EAA3C8E1D2D0C7E00E01521 /* PublisherDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublisherDetailViewController.swift; path = news/PublisherDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EAA3C901D2D56D800E01521 /* PublisherCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublisherCollectionViewCell.swift; path = news/PublisherCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		3EAA3C921D2DA28300E01521 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = news/WebViewController.swift; sourceTree = SOURCE_ROOT; };
 		3EAA3C941D2E4B3E00E01521 /* PublisherSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublisherSectionHeader.swift; path = news/PublisherSectionHeader.swift; sourceTree = SOURCE_ROOT; };
@@ -67,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				3EAA3C901D2D56D800E01521 /* PublisherCollectionViewCell.swift */,
-				3EAA3C8E1D2D0C7E00E01521 /* PublisherDetailViewController.swift */,
 				3EAA3C8C1D2C06EF00E01521 /* PublishersCollectionViewController.swift */,
 				F5F78F9D1B62E37D002A2D62 /* AppDelegate.swift */,
 				F5F78FA11B62E37D002A2D62 /* Main.storyboard */,
@@ -162,7 +159,6 @@
 			files = (
 				3EAA3C8D1D2C06EF00E01521 /* PublishersCollectionViewController.swift in Sources */,
 				F5F78FB31B62E391002A2D62 /* Publishers.swift in Sources */,
-				3EAA3C8F1D2D0C7E00E01521 /* PublisherDetailViewController.swift in Sources */,
 				3EAA3C951D2E4B3E00E01521 /* PublisherSectionHeader.swift in Sources */,
 				3EAA3C911D2D56D800E01521 /* PublisherCollectionViewCell.swift in Sources */,
 				3EAA3C931D2DA28300E01521 /* WebViewController.swift in Sources */,
