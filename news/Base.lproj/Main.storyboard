@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p9g-pO-8sD">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Publishers Collection View Controller-->
+        <scene sceneID="z9u-6B-sxo">
+            <objects>
+                <collectionViewController id="qoc-Sv-qqr" customClass="PublishersCollectionViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="tzG-vo-1FS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="6qI-L1-Nxn">
+                            <size key="itemSize" width="200" height="200"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PublisherCell" id="cdu-ip-geo" customClass="PublisherCollectionViewCell" customModule="News" customModuleProvider="target">
+                                <rect key="frame" x="8" y="72" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MIT Technology Review" translatesAutoresizingMaskIntoConstraints="NO" id="igv-uA-QHV">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Mk-po-bnJ">
+                                            <rect key="frame" x="0.0" y="170" width="200" height="30"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gba-FL-qkL">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nzz-9w-aSg">
+                                                        <rect key="frame" x="4" y="2" width="192" height="26"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="nzz-9w-aSg" secondAttribute="bottom" constant="2" id="CD5-Yk-iYt"/>
+                                                    <constraint firstItem="nzz-9w-aSg" firstAttribute="leading" secondItem="gba-FL-qkL" secondAttribute="leading" constant="4" id="Iru-gt-R2w"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nzz-9w-aSg" secondAttribute="trailing" constant="4" id="We7-BK-qgC"/>
+                                                    <constraint firstItem="nzz-9w-aSg" firstAttribute="top" secondItem="gba-FL-qkL" secondAttribute="top" constant="2" id="s44-gF-iEU"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Ay0-Vv-8Vb"/>
+                                            </constraints>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="igv-uA-QHV" secondAttribute="trailing" id="CUA-NQ-o1O"/>
+                                    <constraint firstItem="igv-uA-QHV" firstAttribute="leading" secondItem="cdu-ip-geo" secondAttribute="leading" id="dpT-X4-xzA"/>
+                                    <constraint firstAttribute="bottom" secondItem="4Mk-po-bnJ" secondAttribute="bottom" id="eNJ-5K-d28"/>
+                                    <constraint firstItem="igv-uA-QHV" firstAttribute="top" secondItem="cdu-ip-geo" secondAttribute="top" id="hQ0-zz-8Bc"/>
+                                    <constraint firstItem="4Mk-po-bnJ" firstAttribute="leading" secondItem="cdu-ip-geo" secondAttribute="leading" id="o2r-gI-xc9"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Mk-po-bnJ" secondAttribute="trailing" id="slV-eI-fd7"/>
+                                    <constraint firstAttribute="bottom" secondItem="igv-uA-QHV" secondAttribute="bottom" id="w7H-y2-dI5"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="publisherImage" destination="igv-uA-QHV" id="MdG-6P-bFa"/>
+                                    <outlet property="publisherTitle" destination="nzz-9w-aSg" id="hDg-bT-dJR"/>
+                                    <outlet property="publisherVisualEffect" destination="4Mk-po-bnJ" id="rOj-JB-sab"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="qoc-Sv-qqr" id="4o5-nH-pnJ"/>
+                            <outlet property="delegate" destination="qoc-Sv-qqr" id="HFc-GW-bCQ"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="EEU-b0-ywQ"/>
+                    <connections>
+                        <segue destination="apX-h2-gTX" kind="show" identifier="ShowWebView" id="trj-gA-u8x"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mZe-e5-48w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="245"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="BQO-fg-ybP">
+            <objects>
+                <viewController storyboardIdentifier="PublisherDetailsId" id="apX-h2-gTX" customClass="WebViewController" customModule="News" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tP1-OR-dmL"/>
+                        <viewControllerLayoutGuide type="bottom" id="iyj-Dm-fdY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7p6-Yn-bI2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wT-Xc-GRc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="VoW-vF-iMx">
+                                <rect key="frame" x="0.0" y="64" width="600" height="2"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VoW-vF-iMx" secondAttribute="trailing" id="23j-uF-3WL"/>
+                            <constraint firstItem="2wT-Xc-GRc" firstAttribute="top" secondItem="tP1-OR-dmL" secondAttribute="bottom" id="7aq-yF-8kf"/>
+                            <constraint firstItem="2wT-Xc-GRc" firstAttribute="leading" secondItem="7p6-Yn-bI2" secondAttribute="leading" id="S0R-sS-4Pz"/>
+                            <constraint firstItem="VoW-vF-iMx" firstAttribute="leading" secondItem="7p6-Yn-bI2" secondAttribute="leading" id="ZdV-6t-O62"/>
+                            <constraint firstItem="VoW-vF-iMx" firstAttribute="top" secondItem="tP1-OR-dmL" secondAttribute="bottom" id="lLw-5v-OuN"/>
+                            <constraint firstItem="iyj-Dm-fdY" firstAttribute="top" secondItem="2wT-Xc-GRc" secondAttribute="bottom" id="lyr-dR-vN1"/>
+                            <constraint firstAttribute="trailing" secondItem="2wT-Xc-GRc" secondAttribute="trailing" id="pil-4E-7Xj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressview" destination="VoW-vF-iMx" id="RZj-fM-EKl"/>
+                        <outlet property="webview" destination="2wT-Xc-GRc" id="i5G-FA-vj1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3af-ep-S3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1722" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QK8-y2-3hC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p9g-pO-8sD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eDW-96-7fg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qoc-Sv-qqr" kind="relationship" relationship="rootViewController" id="CCR-p5-Z6t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ufH-MJ-s8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="222" y="245"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="MIT Technology Review" width="1004" height="1296"/>
+    </resources>
+</document>
