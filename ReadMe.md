@@ -18,6 +18,8 @@
 * Custom CollectionViewCell
 * Custom Section Headers
 * Insert New Items
+* Delete Items
+* Move Items
 
 ## Status:
 
@@ -25,5 +27,4 @@
 
 ## Desired Further Enhancement:
 
-* Delete Items
-* Move Items
+* Connect to real world apis/feed apis

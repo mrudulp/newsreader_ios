@@ -8,16 +8,18 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+//private let reuseIdentifier = "Cell"
 
-class PublishersCollectionViewController: UICollectionViewController {
+class PublishersCollectionViewController: UICollectionViewController, PublisherCellDelegate {
 
     //DataSource
     let publishers = Publishers()
     private let leftAndRightPaddings: CGFloat = 32.0
     private let numberOfItems: CGFloat = 3.0
     private let heightAdjustment: CGFloat = 30.0
+    private var canClose:Bool = true
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var addItemBtn: UIBarButtonItem!
     private struct Storyboard
     {
@@ -33,9 +35,6 @@ class PublishersCollectionViewController: UICollectionViewController {
         layout.itemSize = CGSizeMake(width, width + heightAdjustment)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
@@ -63,12 +62,17 @@ class PublishersCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let pubs = publishers.numberOfPublishersInSection(section)
+        let str = "pub count :: \(pubs):: section:: \(section)"
+        print(str)
         return publishers.numberOfPublishersInSection(section)
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! PublisherCollectionViewCell
         cell.publisher = publishers.publisherForItemAtIndexPath(indexPath)
+        cell.delegate = self
+        cell.closeView.hidden = canClose
     
         // Configure the cell
     
@@ -76,32 +80,6 @@ class PublishersCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    */
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
@@ -117,6 +95,14 @@ class PublishersCollectionViewController: UICollectionViewController {
         return headerView
     }
     
+    override func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    override func collectionView(collectionView: UICollectionView, moveItemAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        print("Moving Item from \(sourceIndexPath.row) to \(destinationIndexPath.row)")
+        publishers.movePublisherFromIndexPath(sourceIndexPath, toIndexPath: destinationIndexPath)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == Storyboard.showWebView {
             let webViewController = segue.destinationViewController as! WebViewController
@@ -129,4 +115,28 @@ class PublishersCollectionViewController: UICollectionViewController {
         let indexPath = publishers.indexPathForNewRandomPublisher()
         self.collectionView?.insertItemsAtIndexPaths([indexPath])
     }
+    
+    @IBAction func onEditClicked(sender: AnyObject) {
+        
+        if (self.editButton.title == "Edit") {
+            print("Editing Collection")
+            self.editButton.title = "Done"
+            self.canClose = false
+        } else {
+            print("Done Collection")
+            self.editButton.title = "Edit"
+            self.canClose = true
+        }
+        self.collectionView?.reloadData()
+    }
+    
+    // MARK: PublisherCellDelegate
+    
+    func deletePublisher(publisher:Publisher) {
+        let indexPath:NSIndexPath = publishers.indexPathForPublisher(publisher)
+        let indexs = [indexPath]
+        publishers.deleteItemsAtIndexPaths(indexs)
+        collectionView?.reloadData()
+    }
+
 }

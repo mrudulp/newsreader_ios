@@ -45,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EF2EB871D2E971C00E67E5E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3EAA3C8C1D2C06EF00E01521 /* PublishersCollectionViewController.swift */,
+				3EAA3C921D2DA28300E01521 /* WebViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3EF2EB881D2E972A00E67E5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3EAA3C901D2D56D800E01521 /* PublisherCollectionViewCell.swift */,
+				3EAA3C941D2E4B3E00E01521 /* PublisherSectionHeader.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F5F78F911B62E37D002A2D62 = {
 			isa = PBXGroup;
 			children = (
@@ -64,12 +82,10 @@
 		F5F78F9C1B62E37D002A2D62 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				3EAA3C901D2D56D800E01521 /* PublisherCollectionViewCell.swift */,
-				3EAA3C8C1D2C06EF00E01521 /* PublishersCollectionViewController.swift */,
+				3EF2EB881D2E972A00E67E5E /* Views */,
+				3EF2EB871D2E971C00E67E5E /* ViewControllers */,
 				F5F78F9D1B62E37D002A2D62 /* AppDelegate.swift */,
 				F5F78FA11B62E37D002A2D62 /* Main.storyboard */,
-				3EAA3C941D2E4B3E00E01521 /* PublisherSectionHeader.swift */,
-				3EAA3C921D2DA28300E01521 /* WebViewController.swift */,
 				F5F78FAF1B62E391002A2D62 /* Model Classes */,
 				F5F78FA41B62E37D002A2D62 /* Assets.xcassets */,
 				F5F78FA61B62E37D002A2D62 /* LaunchScreen.storyboard */,

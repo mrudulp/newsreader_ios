@@ -54,11 +54,37 @@
                                             </constraints>
                                             <blurEffect style="light"/>
                                         </visualEffectView>
+                                        <view hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfq-qk-igE">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojJ-sl-bSC">
+                                                    <rect key="frame" x="2" y="1" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Fgz-lL-hZ2"/>
+                                                        <constraint firstAttribute="height" constant="30" id="qUZ-Dw-2Cb"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="Close"/>
+                                                    <connections>
+                                                        <action selector="onCloseBtnClicked:" destination="cdu-ip-geo" eventType="touchUpInside" id="IB6-0U-SLm"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="D0J-7o-T0F"/>
+                                                <constraint firstItem="ojJ-sl-bSC" firstAttribute="leading" secondItem="Mfq-qk-igE" secondAttribute="leading" constant="2" id="VFk-UV-ub8"/>
+                                                <constraint firstItem="ojJ-sl-bSC" firstAttribute="top" secondItem="Mfq-qk-igE" secondAttribute="top" constant="1" id="Ydg-HT-f9O"/>
+                                                <constraint firstAttribute="width" constant="30" id="y4O-ik-KJ3"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="Mfq-qk-igE" firstAttribute="leading" secondItem="cdu-ip-geo" secondAttribute="leading" id="COQ-xM-gAY"/>
                                     <constraint firstAttribute="trailing" secondItem="igv-uA-QHV" secondAttribute="trailing" id="CUA-NQ-o1O"/>
+                                    <constraint firstItem="Mfq-qk-igE" firstAttribute="top" secondItem="cdu-ip-geo" secondAttribute="top" id="de4-ZL-Odl"/>
                                     <constraint firstItem="igv-uA-QHV" firstAttribute="leading" secondItem="cdu-ip-geo" secondAttribute="leading" id="dpT-X4-xzA"/>
                                     <constraint firstAttribute="bottom" secondItem="4Mk-po-bnJ" secondAttribute="bottom" id="eNJ-5K-d28"/>
                                     <constraint firstItem="igv-uA-QHV" firstAttribute="top" secondItem="cdu-ip-geo" secondAttribute="top" id="hQ0-zz-8Bc"/>
@@ -67,6 +93,7 @@
                                     <constraint firstAttribute="bottom" secondItem="igv-uA-QHV" secondAttribute="bottom" id="w7H-y2-dI5"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="closeView" destination="Mfq-qk-igE" id="Hyz-uE-PN3"/>
                                     <outlet property="publisherImage" destination="igv-uA-QHV" id="MdG-6P-bFa"/>
                                     <outlet property="publisherTitle" destination="nzz-9w-aSg" id="hDg-bT-dJR"/>
                                     <outlet property="publisherVisualEffect" destination="4Mk-po-bnJ" id="rOj-JB-sab"/>
@@ -100,6 +127,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="News" id="EEU-b0-ywQ">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="ZkA-3o-VJx">
+                            <connections>
+                                <action selector="onEditClicked:" destination="qoc-Sv-qqr" id="siZ-tW-Bq5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Q2f-zq-HCe">
                             <connections>
                                 <action selector="onAddItemClicked:" destination="qoc-Sv-qqr" id="MHv-TY-iaR"/>
@@ -108,6 +140,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItemBtn" destination="Q2f-zq-HCe" id="wxw-az-qVN"/>
+                        <outlet property="editButton" destination="ZkA-3o-VJx" id="rkg-jn-lpG"/>
                         <segue destination="apX-h2-gTX" kind="show" identifier="ShowWebView" id="trj-gA-u8x"/>
                     </connections>
                 </collectionViewController>
@@ -176,6 +209,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Close" width="26" height="26"/>
         <image name="MIT Technology Review" width="1004" height="1296"/>
     </resources>
 </document>

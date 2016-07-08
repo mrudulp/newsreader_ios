@@ -3,7 +3,7 @@
 //  news
 //
 //  Created by Mrudul Pendharkar on 07/07/16.
-//  Copyright © 2016 Developer Inspirus. All rights reserved.
+//  Copyright © 2016 ShreeVed. All rights reserved.
 //
 
 import UIKit

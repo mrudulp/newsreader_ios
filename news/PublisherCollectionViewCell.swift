@@ -8,13 +8,18 @@
 
 import UIKit
 
+protocol PublisherCellDelegate {
+    func deletePublisher(publisher:Publisher)
+}
+
 class PublisherCollectionViewCell: UICollectionViewCell {
     
-    
+    var delegate:PublisherCellDelegate!
     @IBOutlet weak var publisherImage: UIImageView!
     @IBOutlet weak var publisherVisualEffect: UIVisualEffectView!
     @IBOutlet weak var publisherTitle: UILabel!
     
+    @IBOutlet weak var closeView: UIView!
     var publisher:Publisher!{
         didSet{
             self.updateUI()
@@ -25,5 +30,13 @@ class PublisherCollectionViewCell: UICollectionViewCell {
         self.publisherImage.image = publisher.image
         self.publisherTitle.text = publisher.title
         self.layer.cornerRadius = 3.0
+        self.closeView.layer.cornerRadius = 16.0
+    }
+    @IBAction func onCloseBtnClicked(sender: AnyObject) {
+        print("Deleting Publisher")
+        if let delegate = self.delegate{
+            
+            delegate.deletePublisher(publisher)
+        }
     }
 }

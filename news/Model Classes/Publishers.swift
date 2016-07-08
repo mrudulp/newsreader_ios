@@ -31,6 +31,47 @@ class Publishers
         sections = ["My Favorites", "Politics", "Travel", "Technology"]
     }
     
+    // Number of Publishers in Section
+    func numberOfPublishersInSection(index: Int) -> Int {
+        let publishers = publishersForSection(index)
+        return publishers.count
+    }
+    
+    func titleForSectionAtIndexPath(indexPath: NSIndexPath) -> String?
+    {
+        if indexPath.section < sections.count {
+            return sections[indexPath.section]
+        }
+        return nil
+    }
+    
+    func publisherForItemAtIndexPath(indexPath: NSIndexPath) -> Publisher? {
+        if indexPath.section > 0 {
+            let publishers = publishersForSection(indexPath.section)
+            if publishers.count > 0 {
+                return publishers[indexPath.item]
+                }
+        } else {
+            if publishers.count > 0 {
+                return publishers[indexPath.item]
+            }
+        }
+        return nil
+    }
+    
+    func indexPathForPublisher(publisher: Publisher) -> NSIndexPath
+    {
+        let section = sections.indexOf(publisher.section)
+        var item = 0
+        for (index, currentPublisher) in publishersForSection(section!).enumerate() {
+            if currentPublisher === publisher {
+                item = index
+                break
+            }
+        }
+        return NSIndexPath(forItem: item, inSection: section!)
+    }
+    
     func deleteItemsAtIndexPaths(indexPaths: [NSIndexPath])
     {
         var indexes = [Int]()
@@ -66,42 +107,7 @@ class Publishers
         publishers.sortInPlace { $0.section < $1.section }
         return indexPathForPublisher(newPublisher)
     }
-    
-    func indexPathForPublisher(publisher: Publisher) -> NSIndexPath
-    {
-        let section = sections.indexOf(publisher.section)
-        var item = 0
-        for (index, currentPublisher) in publishersForSection(section!).enumerate() {
-            if currentPublisher === publisher {
-                item = index
-                break
-            }
-        }
-        return NSIndexPath(forItem: item, inSection: section!)
-    }
-    
-    func numberOfPublishersInSection(index: Int) -> Int {
-        let publishers = publishersForSection(index)
-        return publishers.count
-    }
-    
-    func publisherForItemAtIndexPath(indexPath: NSIndexPath) -> Publisher? {
-        if indexPath.section > 0 {
-            let publishers = publishersForSection(indexPath.section)
-            return publishers[indexPath.item]
-        } else {
-            return publishers[indexPath.item]
-        }
-    }
-    
-    func titleForSectionAtIndexPath(indexPath: NSIndexPath) -> String?
-    {
-        if indexPath.section < sections.count {
-            return sections[indexPath.section]
-        }
-        return nil
-    }
-    
+ 
     // MARK: - Private
     
     private func createPublishers() -> [Publisher]
@@ -123,7 +129,8 @@ class Publishers
         index += indexPath.item
         return index
     }
-    
+
+    // Filtering Publishers in Section
     private func publishersForSection(index: Int) -> [Publisher] {
         let section = sections[index]
         let publishersInSection = publishers.filter {
@@ -131,6 +138,7 @@ class Publishers
         }
         return publishersInSection
     }
+
 }
 
 class MyFavorites
@@ -143,6 +151,7 @@ class MyFavorites
         publishers.append(Publisher(title: "TED", url: "https://www.ted.com", image: UIImage(named: "TED")!, section: "My Favorites"))
         publishers.append(Publisher(title: "Re/code", url: "http://recode.net", image: UIImage(named: "Recode")!, section: "My Favorites"))
         publishers.append(Publisher(title: "WIRED", url: "http://www.wired.com", image: UIImage(named: "WIRED")!, section: "My Favorites"))
+
         return publishers
     }
 }
@@ -187,6 +196,7 @@ class Technology
         publishers.append(Publisher(title: "Quartz", url: "http://qz.com", image: UIImage(named: "Quartz")!, section: "Technology"))
         publishers.append(Publisher(title: "Daring Fireball", url: "http://daringfireball.net", image: UIImage(named: "Daring Fireball")!, section: "Technology"))
         publishers.append(Publisher(title: "MIT Technology Review", url: "http://www.technologyreview.com", image: UIImage(named: "MIT Technology Review")!, section: "Technology"))
+
         return publishers
     }
 }
