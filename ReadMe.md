@@ -2,7 +2,8 @@
 
 ## Introduction:
 
-* This project demonstrates a bare minimum newsreader app.
+* This project demonstrates a newsreader app.
+![](./news_demo.gif)
 
 ## Learning Objective:
 
@@ -28,3 +29,6 @@
 ## Desired Further Enhancement:
 
 * Connect to real world apis/feed apis
+
+## Notes:
+* Icon downloaded from (https://blog.agilebits.com/wp-content/uploads/2014/11/news-icon.png)
