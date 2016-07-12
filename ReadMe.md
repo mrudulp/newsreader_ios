@@ -3,7 +3,7 @@
 ## Introduction:
 
 * This project demonstrates a newsreader app.
-![](./news_demo.gif)
+![](./news_demo1.gif)
 
 ## Learning Objective:
 
@@ -32,3 +32,4 @@
 
 ## Notes:
 * Icon downloaded from (https://blog.agilebits.com/wp-content/uploads/2014/11/news-icon.png)
+* Gif created with ezgif.com
